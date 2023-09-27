@@ -1,0 +1,17 @@
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DAL.exe.config
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DAL.exe
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DAL.pdb
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\C1.Win.4.5.2.dll
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\C1.Win.C1FlexGrid.4.5.2.dll
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DTO.exe
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DTO.pdb
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\DTO.exe.config
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\C1.Win.4.5.2.xml
+E:\Desktop\Internship\AdvanceWinform\DAL\bin\Debug\C1.Win.C1FlexGrid.4.5.2.xml
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.Properties.Resources.resources
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.exe
+E:\Desktop\Internship\AdvanceWinform\DAL\obj\Debug\DAL.pdb

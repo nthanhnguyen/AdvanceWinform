@@ -32,7 +32,6 @@
             this.c1Label3 = new C1.Win.C1Input.C1Label();
             this.c1Label4 = new C1.Win.C1Input.C1Label();
             this.c1Label5 = new C1.Win.C1Input.C1Label();
-            this.c1Label1 = new C1.Win.C1Input.C1Label();
             this.c1Label6 = new C1.Win.C1Input.C1Label();
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.txtName = new C1.Win.C1Input.C1TextBox();
@@ -45,11 +44,11 @@
             this.btnSave = new C1.Win.C1Input.C1Button();
             this.c1Label7 = new C1.Win.C1Input.C1Label();
             this.btnNext = new C1.Win.C1Input.C1Button();
+            this.c1Label1 = new C1.Win.C1Input.C1Label();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
@@ -62,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
             this.SuspendLayout();
             // 
             // c1Label2
@@ -73,6 +73,7 @@
             this.c1Label2.Size = new System.Drawing.Size(62, 16);
             this.c1Label2.TabIndex = 0;
             this.c1Label2.Tag = null;
+            this.c1Label2.Value = "Tên nhân viên";
             // 
             // c1Label3
             // 
@@ -83,6 +84,7 @@
             this.c1Label3.Size = new System.Drawing.Size(62, 16);
             this.c1Label3.TabIndex = 0;
             this.c1Label3.Tag = null;
+            this.c1Label3.Value = "Email";
             // 
             // c1Label4
             // 
@@ -93,6 +95,7 @@
             this.c1Label4.Size = new System.Drawing.Size(62, 16);
             this.c1Label4.TabIndex = 0;
             this.c1Label4.Tag = null;
+            this.c1Label4.Value = "Số điện thoại";
             // 
             // c1Label5
             // 
@@ -103,17 +106,7 @@
             this.c1Label5.Size = new System.Drawing.Size(62, 16);
             this.c1Label5.TabIndex = 0;
             this.c1Label5.Tag = null;
-            // 
-            // c1Label1
-            // 
-            this.c1Label1.AutoSize = true;
-            this.c1Label1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1Label1.Location = new System.Drawing.Point(139, 115);
-            this.c1Label1.Name = "c1Label1";
-            this.c1Label1.Size = new System.Drawing.Size(62, 16);
-            this.c1Label1.TabIndex = 1;
-            this.c1Label1.Tag = null;
-            this.c1Label1.Visible = false;
+            this.c1Label5.Value = "Xác nhận mật khẩu";
             // 
             // c1Label6
             // 
@@ -124,6 +117,7 @@
             this.c1Label6.Size = new System.Drawing.Size(62, 16);
             this.c1Label6.TabIndex = 0;
             this.c1Label6.Tag = null;
+            this.c1Label6.Value = "Mật khẩu";
             // 
             // txtId
             // 
@@ -193,6 +187,7 @@
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.UseVisualStyleForeColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -203,17 +198,19 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.UseVisualStyleForeColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // c1Label7
             // 
             this.c1Label7.AutoSize = true;
             this.c1Label7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1Label7.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1Label7.Location = new System.Drawing.Point(161, 43);
+            this.c1Label7.Location = new System.Drawing.Point(191, 38);
             this.c1Label7.Name = "c1Label7";
             this.c1Label7.Size = new System.Drawing.Size(117, 33);
             this.c1Label7.TabIndex = 0;
             this.c1Label7.Tag = null;
+            this.c1Label7.Value = "Cập nhật thông tin người dùng";
             // 
             // btnNext
             // 
@@ -225,11 +222,23 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.UseVisualStyleForeColor = true;
             // 
+            // c1Label1
+            // 
+            this.c1Label1.AutoSize = true;
+            this.c1Label1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1Label1.Location = new System.Drawing.Point(139, 112);
+            this.c1Label1.Name = "c1Label1";
+            this.c1Label1.Size = new System.Drawing.Size(62, 16);
+            this.c1Label1.TabIndex = 5;
+            this.c1Label1.Tag = null;
+            this.c1Label1.Value = "Mã nhân viên";
+            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 518);
+            this.Controls.Add(this.c1Label1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
@@ -240,7 +249,6 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.c1Label1);
             this.Controls.Add(this.c1Label6);
             this.Controls.Add(this.c1Label5);
             this.Controls.Add(this.c1Label7);
@@ -249,11 +257,11 @@
             this.Controls.Add(this.c1Label2);
             this.Name = "EditUserForm";
             this.Text = "EditUserForm";
+            this.Load += new System.EventHandler(this.EditUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1Label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
@@ -266,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +286,6 @@
         private C1.Win.C1Input.C1Label c1Label3;
         private C1.Win.C1Input.C1Label c1Label4;
         private C1.Win.C1Input.C1Label c1Label5;
-        private C1.Win.C1Input.C1Label c1Label1;
         private C1.Win.C1Input.C1Label c1Label6;
         private C1.Win.C1Input.C1TextBox txtId;
         private C1.Win.C1Input.C1TextBox txtName;
@@ -290,5 +298,6 @@
         private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1Label c1Label7;
         private C1.Win.C1Input.C1Button btnNext;
+        private C1.Win.C1Input.C1Label c1Label1;
     }
 }

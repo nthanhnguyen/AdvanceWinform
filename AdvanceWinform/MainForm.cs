@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,58 +26,10 @@ namespace AdvanceWinform
             // TODO: This line of code loads data into the 'winFormDbDataSet.user' table. You can move, or remove it, as needed.
             //this.userTableAdapter.Fill(this.winFormDbDataSet.user);
             // Thêm cột Disable là checkbox vào DataTable
-            fillGrid();
+            UserBUS.Instance.FillGrid(c1FlexGrid1);
 
         }
-
-        private void fillGrid()
-        {
-            // Thực hiện truy vấn SQL và lấy dữ liệu từ bảng Users
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [user]");
-            DataTable dataTable = user.GetAllUsers(sqlCommand);
-
-            // Thêm cột số thứ tự vào DataTable
-            dataTable.Columns.Add("Số Thứ Tự", typeof(int));
-            int rowIndex = 1;
-            foreach (DataRow row in dataTable.Rows)
-            {
-                row["Số Thứ Tự"] = rowIndex;
-                rowIndex++;
-            }
-
-            // Thêm cột Disable là checkbox vào DataTable
-            dataTable.Columns.Add("Không hiển thị", typeof(bool));
-            foreach (DataRow row in dataTable.Rows)
-            {
-                object disabledValue = row["Disable"];
-                if (disabledValue != DBNull.Value && int.TryParse(disabledValue.ToString(), out int disabledIntValue))
-                {
-                    row["Không hiển thị"] = disabledIntValue == 1;
-                }
-                else
-                {
-                    row["Không hiển thị"] = false; // Hoặc bạn có thể đặt giá trị mặc định khác nếu cần
-                }
-            }
-
-            
-
-            // Đặt C1FlexGrid.DataSource bằng DataTable đã chỉnh sửa
-            c1FlexGrid1.DataSource = dataTable;
-
-            c1FlexGrid1.Cols.Move(c1FlexGrid1.Cols["Số Thứ Tự"].Index, 1);
-
-            // Đặt lại tên hiển thị cho các cột
-            c1FlexGrid1.Cols["Số Thứ Tự"].Caption = "Số Thứ Tự";
-            c1FlexGrid1.Cols["UserID"].Caption = "Mã nhân viên";
-            c1FlexGrid1.Cols["UserName"].Caption = "Tên nhân viên";
-            c1FlexGrid1.Cols["Password"].Visible = false;
-            c1FlexGrid1.Cols["Email"].Caption = "Email";
-            c1FlexGrid1.Cols["Tel"].Caption = "Số điện thoại";
-            c1FlexGrid1.Cols["Disable"].Visible = false;
-            c1FlexGrid1.Cols["Không hiển thị"].Caption = "Không hiển thị";
-        }
-
+        
         private void btnAdd_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             EditUserForm editUserForm = new EditUserForm();
@@ -141,31 +94,20 @@ namespace AdvanceWinform
 
         private void btnDelete_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            // Lấy giá trị UserID từ dòng được chọn trong C1FlexGrid
-            string userId = c1FlexGrid1[c1FlexGrid1.RowSel, "UserID"].ToString();
-
-            // Hiển thị hộp thoại xác nhận xóa
-            DialogResult dg = MessageBox.Show("Bạn muốn xóa User này?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dg == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Bạn có muốn xoá loại nhân viên này không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
-                try
+                if (UserBUS.Instance.DeleteUser(c1FlexGrid1))
                 {
-                    // Gọi phương thức xóa người dùng từ đối tượng user
-                    if (user.deleteUser(userId))
-                    {
-                        MessageBox.Show("Xóa thành công User", "Xóa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillGrid(); // Cập nhật lại dữ liệu trong C1FlexGrid sau khi xóa
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi!", "Xóa", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Xoá thất bại, người dùng không tồn tại hoặc có lỗi xảy ra", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                // Sau khi xóa, cập nhật lại C1FlexGrid
+                UserBUS.Instance.FillGrid(c1FlexGrid1);
             }
 
         }

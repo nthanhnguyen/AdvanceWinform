@@ -37,12 +37,16 @@
     <Reference Include="C1.C1Excel.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.C1Pdf.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.C1Zip.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.Win.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.4.5.2, Version=4.5.20232.620, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>..\packages\C1.Win.4.5.20232.620\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.Bitmap.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1Command.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=e808566f358766d8" />
     <Reference Include="C1.Win.C1DX.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1Editor.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1FlexGrid.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.4.5.2, Version=4.5.20232.620, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\packages\C1.Win.C1FlexGrid.4.5.20232.620\lib\net452\C1.Win.C1FlexGrid.4.5.2.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.C1Input.4.5.2, Version=4.5.20232.611, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -104,6 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdvanceWinform.gclicx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{2a6302cb-6047-401b-bef5-5cfbe82a562a}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

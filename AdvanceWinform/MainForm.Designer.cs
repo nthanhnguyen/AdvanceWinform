@@ -49,6 +49,7 @@
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.userTableAdapter = new AdvanceWinform.WinFormDbDataSetTableAdapters.userTableAdapter();
             this.tableAdapterManager = new AdvanceWinform.WinFormDbDataSetTableAdapters.TableAdapterManager();
+            this.c1Label1 = new C1.Win.C1Input.C1Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnExcute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -56,12 +57,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcute
             // 
             this.c1CommandHolder1.SetC1ContextMenu(this.btnExcute, this.c1ContextMenu1);
-            this.btnExcute.Location = new System.Drawing.Point(277, 359);
+            this.btnExcute.Location = new System.Drawing.Point(417, 384);
             this.btnExcute.Name = "btnExcute";
             this.btnExcute.Size = new System.Drawing.Size(122, 41);
             this.btnExcute.TabIndex = 0;
@@ -82,7 +84,7 @@
             // 
             this.c1FlexGrid1.ColumnInfo = resources.GetString("c1FlexGrid1.ColumnInfo");
             this.c1FlexGrid1.DataSource = this.userBindingSource;
-            this.c1FlexGrid1.Location = new System.Drawing.Point(62, 31);
+            this.c1FlexGrid1.Location = new System.Drawing.Point(64, 68);
             this.c1FlexGrid1.Name = "c1FlexGrid1";
             this.c1FlexGrid1.Rows.Count = 1;
             this.c1FlexGrid1.Size = new System.Drawing.Size(670, 297);
@@ -100,7 +102,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(425, 359);
+            this.btnClose.Location = new System.Drawing.Point(565, 384);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(122, 41);
             this.btnClose.TabIndex = 0;
@@ -111,7 +113,7 @@
             // 
             // btnHelp
             // 
-            this.btnHelp.Location = new System.Drawing.Point(572, 359);
+            this.btnHelp.Location = new System.Drawing.Point(83, 384);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(122, 41);
             this.btnHelp.TabIndex = 0;
@@ -195,11 +197,24 @@
             this.tableAdapterManager.UpdateOrder = AdvanceWinform.WinFormDbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.userTableAdapter = this.userTableAdapter;
             // 
+            // c1Label1
+            // 
+            this.c1Label1.AutoSize = true;
+            this.c1Label1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1Label1.Font = new System.Drawing.Font("Times New Roman", 16.2F);
+            this.c1Label1.Location = new System.Drawing.Point(179, 28);
+            this.c1Label1.Name = "c1Label1";
+            this.c1Label1.Size = new System.Drawing.Size(445, 33);
+            this.c1Label1.TabIndex = 5;
+            this.c1Label1.Tag = null;
+            this.c1Label1.Value = "Danh mục người sử dụng chương trình";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.c1Label1);
             this.Controls.Add(this.c1FlexGrid1);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnClose);
@@ -215,7 +230,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -240,6 +257,7 @@
         private System.Windows.Forms.BindingSource userBindingSource;
         private WinFormDbDataSetTableAdapters.userTableAdapter userTableAdapter;
         private WinFormDbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private C1.Win.C1Input.C1Label c1Label1;
     }
 }
 

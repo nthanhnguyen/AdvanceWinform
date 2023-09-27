@@ -33,3 +33,9 @@ E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\obj\Debug\AdvanceWinform.exe
 E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\obj\Debug\AdvanceWinform.pdb
 E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\obj\Debug\AdvanceWinform.MainForm.resources
 E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\obj\Debug\AdvanceWinform.EditUserForm.resources
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\BUS.exe
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\DAL.exe
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\BUS.pdb
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\BUS.exe.config
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\DAL.pdb
+E:\Desktop\Internship\AdvanceWinform\AdvanceWinform\bin\Debug\DAL.exe.config

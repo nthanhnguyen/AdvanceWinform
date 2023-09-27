@@ -118,10 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="c1CommandHolder1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>188, 17</value>
-  </metadata>
-  <metadata name="c1ContextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>561, 17</value>
   </metadata>
   <data name="c1FlexGrid1.ColumnInfo" xml:space="preserve">
     <value>7,1,0,0,0,-1,Columns:1{Name:"UserID";Caption:"Mã nhân viên";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"UserName";Caption:"Tên nhân viên";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"Password";Caption:"Mật khẩu";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"Email";Caption:"Email";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"Tel";Caption:"Số điện thoại";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Name:"Disable";Caption:"Không hiển thị";Style:"DataType:System.Byte;TextAlign:GeneralCenter;";}	</value>
@@ -130,6 +127,6 @@
     <value>755, 17</value>
   </metadata>
   <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 58</value>
+    <value>931, 17</value>
   </metadata>
 </root>
