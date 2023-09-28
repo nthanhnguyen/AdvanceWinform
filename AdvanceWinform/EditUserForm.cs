@@ -13,19 +13,13 @@ namespace AdvanceWinform
 {
     public partial class EditUserForm : Form
     {
+        #region Constructor
         public EditUserForm()
         {
             InitializeComponent();
         }
 
-        private bool isUserIdLocked = false;
-
-        private string userId;
-        private string username;
-        private string password;
-        private string email;
-        private string tel;
-        private bool disable;
+        
 
         public EditUserForm(string userId, string username, string password, string email, string tel, bool disable)
         {
@@ -42,25 +36,27 @@ namespace AdvanceWinform
             // Khóa mã người dùng
             LockUserId();
         }
+        #endregion
 
-        private void EditUserForm_Load(object sender, EventArgs e)
-        {
-            // Hiển thị thông tin người dùng từ các biến thành viên
-            txtId.Text = userId;
-            txtName.Text = username;
-            txtPassword.Text = password;
-            txtConfirmPassword.Text = password;
-            txtEmail.Text = email;
-            txtTel.Text = tel;
-            checkDisplay.Checked = disable;
-        }
+        #region Variables
+        private bool isUserIdLocked = false;
+        private string userId;
+        private string username;
+        private string password;
+        private string email;
+        private string tel;
+        private bool disable;
+        #endregion
 
+        #region Private Methods
         public void LockUserId()
         {
             isUserIdLocked = true;
             txtId.Enabled = false;
         }
+        #endregion
 
+        #region Public Methods
         public void HideNextButton()
         {
             btnNext.Enabled = false;
@@ -79,6 +75,20 @@ namespace AdvanceWinform
             txtConfirmPassword.Enabled = false;
             txtEmail.Enabled = false;
             txtTel.Enabled = false;
+        }
+        #endregion
+
+        #region Handle Events
+        private void EditUserForm_Load(object sender, EventArgs e)
+        {
+            // Hiển thị thông tin người dùng từ các biến thành viên
+            txtId.Text = userId;
+            txtName.Text = username;
+            txtPassword.Text = password;
+            txtConfirmPassword.Text = password;
+            txtEmail.Text = email;
+            txtTel.Text = tel;
+            checkDisplay.Checked = disable;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -110,66 +120,48 @@ namespace AdvanceWinform
                 Disable = 1;
             }
 
-            if (isUserIdLocked)
+            if (UserBUS.Instance.CheckEmpty(UserId, Username))
             {
-                if (UserBUS.Instance.EditUser(UserId, Username, Password, Email, Tel, Disable))
+                try
                 {
-                    MessageBox.Show("Đã sửa thông tin thành công", "Sửa thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (UserBUS.Instance.CheckEmail(Email))
+                    {
+                        MessageBox.Show("Email người dùng không hợp lệ!", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (isUserIdLocked)
+                    {
+                        if (UserBUS.Instance.EditUser(UserId, Username, Password, Email, Tel, Disable))
+                        {
+                            MessageBox.Show("Đã sửa thông tin thành công", "Sửa thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else if (UserBUS.Instance.CheckUserExists(UserId))
+                    {
+                        MessageBox.Show("Mã người dùng đã tồn tại. Vui lòng chọn mã người dùng khác.", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Không thực hiện thêm hoặc sửa nếu mã người dùng đã tồn tại
+                    }
+                    else if (UserBUS.Instance.InsertUser(UserId, Username, Password, Email, Tel, Disable))
+                    {
+                        MessageBox.Show("Đã thêm người dùng thành công", "Thêm người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Sau khi lưu thành công, làm cho nút btnSave trở thành mờ đi
+                        btnSave.Enabled = false;
+
+                        // Hiện nút "Nhập tiếp"
+                        btnNext.Enabled = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-
-            else if (UserBUS.Instance.InsertUser(UserId, Username, Password, Email, Tel, Disable))
+            else
             {
-                MessageBox.Show("Đã thêm người dùng thành công", "Thêm người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Sau khi lưu thành công, làm cho nút btnSave trở thành mờ đi
-                btnSave.Enabled = false;
-
-                // Hiện nút "Nhập tiếp"
-                btnNext.Enabled = true;
+                MessageBox.Show("Không được để trống Mã nhân viên hay Tên nhân viên.", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            /*            if (UserBUS.Instance.CheckEmpty(UserId, Username))
-                        {
-                            try
-                            {
-                                if (UserBUS.Instance.CheckEmail(Email))
-                                {
-                                    MessageBox.Show("Email người dùng không hợp lệ!", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-                                else if (isUserIdLocked)
-                                {
-                                    if (UserBUS.Instance.EditUser(UserId, Username, Password, Email, Tel, Disable))
-                                    {
-                                        MessageBox.Show("Đã sửa thông tin thành công", "Sửa thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (UserBUS.Instance.CheckUserExists(UserId))
-                                {
-                                    MessageBox.Show("Mã người dùng đã tồn tại. Vui lòng chọn mã người dùng khác.", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return; // Không thực hiện thêm hoặc sửa nếu mã người dùng đã tồn tại
-                                }
-                                else if (UserBUS.Instance.InsertUser(UserId, Username, Password, Email, Tel, Disable))
-                                {
-                                    MessageBox.Show("Đã thêm người dùng thành công", "Thêm người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    // Sau khi lưu thành công, làm cho nút btnSave trở thành mờ đi
-                                    btnSave.Enabled = false;
-
-                                    // Hiện nút "Nhập tiếp"
-                                    btnNext.Enabled = true;
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không được để trống Mã nhân viên hay Tên nhân viên.", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }*/
         }
+        #endregion
     }
 }

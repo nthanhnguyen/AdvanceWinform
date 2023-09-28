@@ -139,17 +139,21 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(291, 196);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(290, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Tag = null;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(291, 236);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.Size = new System.Drawing.Size(290, 20);
             this.txtConfirmPassword.TabIndex = 2;
             this.txtConfirmPassword.Tag = null;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 
@@ -256,6 +260,7 @@
             this.Controls.Add(this.c1Label3);
             this.Controls.Add(this.c1Label2);
             this.Name = "EditUserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditUserForm";
             this.Load += new System.EventHandler(this.EditUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1Label2)).EndInit();

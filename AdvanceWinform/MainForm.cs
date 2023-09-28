@@ -14,18 +14,16 @@ namespace AdvanceWinform
 {
     public partial class MainForm : Form
     {
+        #region Constructor
         public MainForm()
         {
             InitializeComponent();
         }
+        #endregion
 
-        User user = new User();
-
+        #region Handle Events
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'winFormDbDataSet.user' table. You can move, or remove it, as needed.
-            //this.userTableAdapter.Fill(this.winFormDbDataSet.user);
-            // Thêm cột Disable là checkbox vào DataTable
             UserBUS.Instance.FillGrid(c1FlexGrid1);
 
         }
@@ -116,5 +114,6 @@ namespace AdvanceWinform
         {
             this.Close();
         }
+        #endregion
     }
 }

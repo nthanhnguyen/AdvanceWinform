@@ -72,16 +72,7 @@ namespace DAL
         /// <returns>Trả về true nếu chèn thành công; ngược lại, trả về false.</returns>
         public bool insertUser(string userid, string username, string password, string email, string tel, int disable)
         {
-            string query = "InsertUser @id, @username, @password, @email, @tel, @disable";
-            /*string query = "INSERT INTO [user] (UserID, UserName, Password, Email, Tel, Disable)" +
-                   "VALUES (@id, @username, @password, @email, @tel, @disable)";
-            SqlCommand command = new SqlCommand();
-            command.Parameters.Add("@id", SqlDbType.NVarChar).Value = userid;
-            command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-            command.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
-            command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-            command.Parameters.Add("@tel", SqlDbType.NVarChar).Value = tel;
-            command.Parameters.Add("@disable", SqlDbType.Int).Value = disable;*/
+            string query = "InsertUser @id , @username , @password , @email , @tel , @disable";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { userid, username, password, email, tel, disable }) > 0;
         }
 
@@ -97,14 +88,7 @@ namespace DAL
         /// <returns>Trả về true nếu sửa thông tin thành công; ngược lại, trả về false.</returns>
         public bool editUser(string userid, string username, string password, string email, string tel, int disable)
         {
-            string query = "UPDATE [user] SET  UserName = @username, Password = @password, Email = @email, Tel = @tel, Disable = @disable WHERE UserID = @id";
-            SqlCommand command = new SqlCommand(query);
-            command.Parameters.Add("@id", SqlDbType.NVarChar).Value = userid;
-            command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-            command.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
-            command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-            command.Parameters.Add("@tel", SqlDbType.NVarChar).Value = tel;
-            command.Parameters.Add("@disable", SqlDbType.Int).Value = disable;
+            string query = "UpdateUser @id , @username , @password , @email , @tel , @disable";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { userid, username, password, email, tel, disable }) > 0;
         }
 
@@ -115,7 +99,7 @@ namespace DAL
         /// <returns>Trả về true nếu người dùng tồn tại; ngược lại, trả về false.</returns>
         public bool checkUserExists(string userid)
         {
-            string query = "EXECUTE [dbo].[CheckUserExists] UserID = @userid";
+            string query = "CheckUserExists @id";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { userid }) > 0;
         }
 
@@ -126,7 +110,7 @@ namespace DAL
         /// <returns>Trả về true nếu địa chỉ email hợp lệ; ngược lại, trả về false.</returns>
         public bool checkEmail(string email)
         {
-            string query = "EXECUTE [dbo].[CheckValidEmail] Email = @email";
+            string query = "CheckValidEmail @email";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { email }) > 0;
         }
         #endregion

@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BUS
 {
@@ -115,14 +118,7 @@ namespace BUS
         /// <returns>Trả về true nếu chèn thành công; ngược lại, trả về false.</returns>
         public bool InsertUser(string userid, string username, string password, string email, string tel, int disable)
         {
-            if (UserDAL.Instance.insertUser(userid, username, password, email, tel, disable))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return UserDAL.Instance.insertUser(userid, username, password, email, tel, disable);
         }
 
         /// <summary>
@@ -137,14 +133,7 @@ namespace BUS
         /// <returns>Trả về true nếu sửa thông tin thành công; ngược lại, trả về false.</returns>
         public bool EditUser(string userid, string username, string password, string email, string tel, int disable)
         {
-            if (UserDAL.Instance.editUser(userid, username, password, email, tel, disable))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return UserDAL.Instance.editUser(userid, username, password, email, tel, disable);
         }
 
         /// <summary>
